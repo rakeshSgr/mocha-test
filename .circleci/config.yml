@@ -8,13 +8,8 @@ jobs:
     steps:
       - run: 
           name: Install npm dependencies
-          commond: |
+          command: 
             npm install --save
-
-      - save_cache:
-            key: dependency-cache-{{ checksum "package.json"}}
-            paths:
-              - ./node_modules
         - run:
             name: test
             command: npm test
