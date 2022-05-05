@@ -1,0 +1,32 @@
+version: 2.1
+
+# Define the jobs we want to run for this project
+jobs:
+  run_tests:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - run: 
+          name: Install npm dependencies
+          commond: |
+            npm install --save
+
+      - save_cache:
+            key: dependency-cache-{{ checksum "package.json"}}
+            paths:
+              - ./node_modules
+        - run:
+            name: test
+            command: npm test
+        - store_artifacts:
+            path: test-results.xml
+            prefix: tests
+        - store_test_results:
+            path: test-results.xml
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - run_tests
+     
