@@ -3,13 +3,17 @@ var Box = function(length, width, height) {
   this.length = length;
   this.width = width;
   this.height = height;
+
 };
 
-console.log("----------");
 
 Box.prototype.getVolume = function() {
-
+let data =[];
  
+data.map(function(el){
+
+});
+
 console.log("----------");
   return this.length * this.width * this.height;
 };
