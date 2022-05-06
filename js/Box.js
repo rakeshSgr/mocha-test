@@ -10,6 +10,7 @@ console.log("----------");
 Box.prototype.getVolume = function() {
 
  
+console.log("----------");
   return this.length * this.width * this.height;
 };
 
